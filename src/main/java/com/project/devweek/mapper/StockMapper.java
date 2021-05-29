@@ -1,5 +1,8 @@
 package com.project.devweek.mapper;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.project.devweek.model.Stock;
 import com.project.devweek.model.dto.StockDTO;
 
@@ -33,6 +36,10 @@ public class StockMapper {
 
     return dto;
     
+  }
+
+  public List<StockDTO> toDto(List<Stock> listStock) {
+    return listStock.stream().map(this::toDto).collect(Collectors.toList());
   }
   
 }
